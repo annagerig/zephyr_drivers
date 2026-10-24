@@ -1,0 +1,19 @@
+# Copyright (c) 2026 Anna Gerig
+# SPDX-License-Identifier: Apache-2.0
+
+description: |
+  STMicroelectronics STM32U3 HSP (Signal Processing Engine) hardware FFT
+  accelerator. Exposes a real-FFT device API; the driver boots the engine with
+  ST's firmware and issues direct accelerator commands.
+
+compatible: "st,stm32u3-hsp"
+
+include: [base.yaml]
+
+properties:
+  reg:
+    required: true
+  clocks:
+    required: true
+  interrupts:
+    required: true

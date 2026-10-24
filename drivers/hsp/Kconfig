@@ -1,0 +1,26 @@
+# SPDX-License-Identifier: Apache-2.0
+
+# hal_stm32 compiles stm32u3xx_hal_hsp.c with this symbol, but Zephyr's
+# modules/Kconfig.stm32 does not define it yet.
+config USE_STM32_HAL_HSP
+	bool
+
+menuconfig HSP_STM32
+	bool "STM32U3 HSP hardware FFT driver"
+	depends on DT_HAS_ST_STM32U3_HSP_ENABLED
+	select USE_STM32_HAL_HSP
+	help
+	  Real FFT on the STM32U3 HSP, API in <vt1/drivers/hsp.h>. Off by
+	  default: when enabled, the HSP is clocked and booted at startup.
+
+if HSP_STM32
+
+config HSP_STM32_INIT_PRIORITY
+	int "Init priority"
+	default 80
+
+module = HSP_STM32
+module-str = STM32U3 HSP driver
+source "subsys/logging/Kconfig.template.log_config"
+
+endif # HSP_STM32
