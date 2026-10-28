@@ -42,4 +42,4 @@ to ~1e-7 relative (not bit-identical), 1.1 to 1.8 times faster for n = 64..4096.
 
 Own code: Apache-2.0. `drivers/hsp/st/` (HSP firmware microcode and command
 definitions, FW 1.1.7) is from STMicroelectronics' STM32CubeU3 package under
-ST's license terms; check them before making this repository public.
+ST's license terms.

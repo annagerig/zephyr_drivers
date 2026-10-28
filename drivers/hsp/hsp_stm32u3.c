@@ -39,7 +39,7 @@ struct hsp_stm32u3_data {
 };
 
 /* fft_attr field the HSP RFFT expects (see ST get_fft_attr): bit-reverse adds
- * log2, inverse-FFT sets bit 5. We only ever do a forward, bit-reversed RFFT. */
+ * log2, inverse-FFT sets bit 5. The driver uses forward, bit-reversed only. */
 static inline uint32_t hsp_fft_attr(uint32_t log2, uint32_t bitrev, uint32_t ifft)
 {
 	uint32_t attr = 0U;
